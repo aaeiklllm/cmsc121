@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <script>
+            var strings = []
+
+            function getText(){
+                var text = document.getElementById('input').value 
+                strings.push(text)
+                displayText(strings)
+            }
+
+            function displayText(strings){
+                var bullet = ""
+                var element = document.getElementById('displayArea')
+                
+                strings.forEach(el => {
+                    bullet += "<li>" + el + "</li>"
+                });
+
+                element.innerHTML = "<ul class=\"list\">" + bullet + "</ul>"
+            }
+
+            function deleteText(){
+                var items = document.querySelectorAll(".list")
+                var index
+            
+                for(var i = 0; i < items.length; i++){
+                    items[i].onclick = function(){
+                    index = strings.indexOf(this.innerHTML) // this is yung pinindot natin
+                    strings.splice(index, 1)
+                    printNew(strings)
+                    }
+                }
+            }
+
+            function printNew(strings){
+                var bullet = ""
+                var element = document.getElementById('displayArea')
+                var items = document.querySelectorAll(".list li")
+
+                strings.forEach(el => {
+                    bullet += "<li>" + el + "</li>"
+                });
+
+                element.innerHTML = "<ul class=\"list\">" + bullet + "</ul>"
+                deleteText()
+            }  
+        </script>
+        <style>
+            body{
+                background-color: #EDE9D5;
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: 0 0;
+            }
+
+            p{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                text-align: center;
+                color: #617143;
+            }
+
+            button{
+                background-color: #E7AB9A; 
+                color: white;
+                position: relative;
+                display: inline-block;
+                top: 30px;
+                width: 80px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                text-align: center;
+                line-height: 14px;
+                border: 2px solid #617143; 
+                border-radius: 5px;
+                padding: 8px 20px;
+                box-shadow: rgb(223, 120, 87) -3px 2px 7px 0px;
+            }
+                button:hover {
+                background: #DF7857; 
+                }
+
+                button:active {
+                background: #DF7857; 
+                }
+
+            div{
+                position: relative;
+                top: 50px;
+                width: 800px;
+                height: auto;
+                border:3px solid #617143
+            }
+
+            #input{
+                position: relative;
+                top: 15px;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+                width: 250px;
+                border-radius: 10px;
+                padding: 8px 10px;
+                margin: 5px 0;
+                font-size: 15px;
+            }
+
+            ul {
+                list-style-type: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                text-align: center;
+                left: -50px;
+                color: #DF7857;
+            }
+
+        </style>
+     </head>
+     <body>
+        <center>
+        <p>
+            <b>To add a string:</b>  <br>
+            1. Type the string in the input field <br>
+            2. Press the "Add" button <br>
+            <br>
+            <b>To delete a string:</b> <br>
+            1. Press the "Delete" button <br>
+            2. Click on the string/s you want to delete <br>
+        </p>
+        <input type="text" id="input">
+        <button id="add" onclick="getText()"> Add </button>
+        <button id="delete" onclick="deleteText()"> Delete </button>
+        <br>
+        <div id="displayArea"></div>
+     </center>
+     </body>
+</html>

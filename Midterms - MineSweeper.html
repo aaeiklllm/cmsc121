@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="UTF-8">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script> 
+            
+            function addNumbers(){
+                // var table = document.getElementById('board')
+                // for (var i = 0, row; row = table.rows[i]; i++){
+                //     for (var j = 0, col; col = row.cells[j]; j++){
+                //         if (table[row][column] == '*'){
+                //             alert('help')
+                //         }
+
+                //         console.log(table[0][0])
+                //     }
+                // }
+            }
+
+            function addBeginnerMines(){
+                for (let i = 0; i < 10; i++) { 
+                    let randRows = Math.floor(Math.random() * 10)
+                    let randColumns = Math.floor(Math.random() * 10)
+
+                    document.getElementById('board').rows[randRows].cells[randColumns].innerHTML = "💣";    
+                }
+            }
+
+            function addIntermediateMines(){
+                for (let i = 0; i < 15; i++) { 
+                    let randRows = Math.floor(Math.random() * 15)
+                    let randColumns = Math.floor(Math.random() * 15)
+
+                    document.getElementById('board').rows[randRows].cells[randColumns].innerHTML = "💣";    
+                }
+            }
+
+            function addExpertMines(){
+                for (let i = 0; i < 20; i++) { 
+                    let randRows = Math.floor(Math.random() * 20)
+                    let randColumns = Math.floor(Math.random() * 20)
+
+                    document.getElementById('board').rows[randRows].cells[randColumns].innerHTML = "💣";    
+                }
+            }
+
+            function createBeginnerTable(){  
+                clearTable()
+                row = 10
+                column = 10 
+                for(var r = 0; r < row; r++){
+                var x = document.getElementById('board').insertRow(r);
+                    for(var c = 0; c < column; c++){
+                        var y = x.insertCell(c);
+                    }
+                }
+                addBeginnerMines()
+                addNumbers()
+            }
+
+            function createIntermediateTable(){  
+                clearTable()
+                row = 15
+                column = 15 
+                for(var r = 0; r < row; r++){
+                var x = document.getElementById('board').insertRow(r);
+                    for(var c = 0; c < column; c++){
+                        var y = x.insertCell(c);
+                    }
+                }
+                addIntermediateMines()
+                addNumbers()
+            }
+
+            function createExpertTable(){  
+                clearTable()
+                row = 20
+                column = 20
+                for(var r = 0; r < row; r++){
+                var x = document.getElementById('board').insertRow(r);
+                    for(var c = 0; c < column; c++){
+                        var y = x.insertCell(c);
+                    }
+                }
+                addExpertMines()
+                addNumbers()
+            }
+
+            function clearTable(){  
+                var element = document.getElementById('board')
+                element.innerHTML = "<table id=\"board\">" + "</table>"
+            }
+
+           
+
+        </script>
+        <style>  
+        td {
+            background-color: #E4DCCF;
+            color: black;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            font-size: 10px;
+        }
+
+        table{
+            margin: auto;
+            table-layout: fixed;
+        }
+
+        button{
+            margin: 0 auto;
+            display: block;
+            background-color: black;
+    
+            color: white;
+            padding: 10px 15px;
+            font-size: 12px;
+
+            background-color: #6F4E37; 
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        * {
+            background-color: #F9F5EB;
+        }
+        
+        </style> 
+     </head>
+     <body>
+        <div id = "box">
+            <button onclick="createBeginnerTable()"> Beginner </button>
+            <button onclick="createIntermediateTable()"> Intermediate </button>
+            <button onclick="createExpertTable()"> Expert </button>
+            <table id="board"></table>
+        </div>
+     </body>
+</html>
+
+

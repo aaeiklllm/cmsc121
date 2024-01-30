@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Lab Exercise 1
+        </title>
+        <style>
+            @font-face {
+                font-family: "Myriad";
+                src: url(resources/MYRIADAT.TTF);
+            }
+
+            body{
+                width: 1440px;
+                height: 820px;
+                background-image: url(resources/cake.jpg);
+                background-repeat: no-repeat;
+                background-size: 1440px 820px;
+                font-family: Myriad;
+                position: absolute;
+            }
+
+            #main-box{
+                background-color: whitesmoke;
+                opacity: 75%;
+                position: relative;
+                width: 820px;
+                height: 610px;
+                left: 50px;
+                font-size: 22px;
+                padding-top: 10px;
+                padding-left: 45px;
+                margin: 25px;
+                border-radius: 20px;
+            }
+
+            #foot-bar{
+                background-color: #957dad;
+                color: #fec8d8;
+                position: relative;
+                border-style: dotted;
+                border-color: black;
+                padding: 5px; 
+                top: -490px;
+                width: 1310px;
+                height: 50px;
+                left: 10px;
+                font-size: 20px; 
+                vertical-align: middle;
+                line-height: 50px;
+            }
+        
+            #border{
+                border-color: #e0bbe4;
+                border-style: solid;
+                position: absolute;
+                top: 25px;
+                left: 35px;
+                width: 1350px;
+                height: 750px;
+            }
+
+            .authentication-box{
+                background-color: #957dad;
+                color: #fec8d8;
+                border-style: dotted;
+                border-color: black;
+                position: relative;
+                font-size: 22px;
+                width: 340px;
+                left: 970px;
+                border-radius: 20px;
+            }
+
+            #sign-in{
+                height: 220px;
+                top: -600px;
+            }   
+
+            #register{
+                height: 260px;
+                top: -575px;
+            }
+
+            h1{
+                text-align: center;
+            }
+
+            input{
+                width: 250px;
+                border-radius: 10px;
+                padding: 8px 10px;
+                margin: 5px 0;
+                font-size: 15px;
+            }
+
+            button{
+                background-color: #fedfd3; 
+                position: absolute;
+                border-color: black;
+                border-width: 2.5px;
+                color: black;
+                border-radius: 5px;
+                padding: 8px 20px;
+                text-align: center;
+                font-size: 12px;
+                left: 190px;
+            }
+            
+        </style>
+    </head>
+    <body>
+    <div id = "border">
+            <div id = "main-box">
+                <h1><b> Are you craving for Sweets </b></h1>
+                <h3><b> But you still have work to do </b></h3>
+                <p> 
+                    Welcome to the <b>Bento Cake Shop</b>! Extended working hours will never be the same with <br>
+                    the convenience of ordering cakes right at your fingertips. Just fill up your order and <br>
+                    you're set to choose among thousands <i> (well, actually, only about hundreds) </i> of different <br>
+                    cake items. Cakes range from big, medium, and small for those who don't want to tuck <br>
+                    in bed with a heavy stomach <i> (or maybee just in an <u> occassional</u> diet) </i><br>
+                    <br>
+                    No account yet? Signing up is as easy as blowing the candle on a cake. Put in your login <br>                    
+                    information at the form to the right of this page and boom (!), you're in. From here on, <br>
+                    you can:
+        
+                    <ul>
+                        <li> Choose a branch from a list of available stores around the metro </li>
+                        <li> Order your cake and put in precious remarks and request <i> (no cherries please!) </i></li>
+                        <li> View order from your colleagues and see what they're having <i> (for those running <br>
+                            out of cake ideas) </i></li>
+                    </ul>                    
+                        
+                    Just make sure your order price consider delivery and other service charges. And also <br>
+                    do not forget to claim the official reciept from the delivery guy. Food becomes more <br>
+                    delicious when it's free. So what else are you waiting for? Order now!
+                </p>
+            </div>
+
+            <div class = "authentication-box" id = "sign-in">
+                <p style = "padding-left: 30px">
+                    <b> Sign in now! </b>
+                    <br>
+                    <input type = "text" placeholder = "Username">
+                    <br>
+                    <input type = "password" placeholder = "Password">
+                    <br>
+                </p>
+                <button style = "top: 150px" type = "button">
+                    Sign in!
+                </button>
+            </div>
+
+            <div class = "authentication-box" id = "register">
+                <p style = "padding-left: 30px">
+                    <b> New to Member? </b>  
+                    <br>
+                    <input type = "text" placeholder = "Full name">
+                    <br>
+                    <input type = "text" placeholder = "Username">
+                    <br>
+                    <input type = "password" placeholder = "Password">
+                    <br>
+                </p>
+                <button style = "top: 200px" type = "button">
+                    Register
+                </button>
+            </div>
+
+            <div id = "foot-bar">
+                <b>
+                    <span style = "padding-left: 40px"> About &nbsp; | &nbsp; Help &nbsp; | &nbsp; Comments and Suggestions </span>
+                    <span style = "padding-left: 620px"> All rights reserved </span>
+                </b>
+            </div>
+        </div>
+    </body>
+</html>

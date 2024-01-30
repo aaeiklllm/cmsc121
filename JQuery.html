@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script>
+            // function alertText(){
+            //     var temp = document.getElementById("textinput").value
+            //     alert(temp)
+            // }
+            
+
+            $(document).ready(function(){
+                $("#textinput").keypress(function(){
+                    $("#displayText").text($("#textinput").val())
+                });
+
+                $("#hideS").click(function(){
+                    $("#div1").slideUp("slow")
+                })
+
+                $("#showS").click(function(){
+                    $("#div1").slideDown("slow")
+                })
+
+                $("#addText").click(function(){
+                    $("#para1").append("This is an appended message")
+                    $("#myList").append("<li onclick = \"deleteText(this)\">" + $("#textinput").val() + "</li>")
+                })
+
+                $("#changeColor").click(function(){
+                    $("#div1").css({"background-color": "blue", "width":"160px","height":"160px"})
+                })
+            });
+
+            function deleteText(element){
+                    element.remove()
+                }
+
+            
+        </script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+    </head>
+
+    <body>
+        <h1 id = "displayText">Hello World!!!</h1>
+        <input type="text" id = "textinput">
+        <button>Click Me!</button>
+        <br><br><br>
+        <div id="div1" style="width:80px;height:80px;background-color:red;"></div><br>
+        <button id = "hideS">Hide Square</button>
+        <button id = "showS">Show Suqare</button>
+
+        <p id = "para1">This is a <strong>long</strong> paragraph!!!</p>
+        <ul id = "myList">
+            <li onclick = "deleteText(this)">Text 1</li>
+            <li onclick = "deleteText(this)">Text 2</li>
+        </ul>
+        <button id = "addText">Append </button>
+        <button id = "changeColor">Change Color </button>
+
+        <button type="button" class="btn btn-primary">Primary</button>
+
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary">Primary</button>
+          <button type="button" class="btn btn-secondary">Secondary</button>
+          <button type="button" class="btn btn-success">Success</button>
+          <button type="button" class="btn btn-danger">Danger</button>
+          <button type="button" class="btn btn-warning">Warning</button>
+          <button type="button" class="btn btn-info">Info</button>
+          <button type="button" class="btn btn-light">Light</button>
+          <button type="button" class="btn btn-dark">Dark</button>
+          
+          <button type="button" class="btn btn-link">Link</button>
+          
+    </body>
+</html>
