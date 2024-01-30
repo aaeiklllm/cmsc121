@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Calculator </title>
+        <style>
+            body{
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                background-color: #d4d4d2;
+            }
+
+            #calculator{
+                width: 320px;
+                height: 450px;
+                background: #1c1c1c;
+                border-radius: 15px;
+                position: absolute;
+            }
+
+            table{
+                position: relative;
+                top: 10px;
+                left: 17px;
+            }
+
+            input[type=button]{
+                top: 20px;
+                position: relative;
+                width: 58px;
+                height: 55px;
+                margin: 5px;
+                border-radius: 25px;
+                font-size: 20px;
+            }
+
+            input[type=text]{
+                width: 270px;
+                top: 20px;
+                position: relative; 
+                height: 50px;
+                border-radius: 10px;
+                font-size: 25px;
+            }
+
+            .display{
+                background: #505050;
+                color: white;
+            }
+
+            #equate{
+                background: #ff9500;
+                color: white;
+                width: 130px;
+            }
+
+            #clear{
+                background: #ff9500;
+                color: white;   
+            }
+
+            #delete{
+                background: #ff9500;
+                color: white;
+            }
+
+            #negate{
+                background: #ff9500;
+                color: white;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".display").click(function(){
+                    var value = $(this).val()
+                    if ($("#displayArea").val()== null){
+                        $("#displayArea").val(value) 
+                    }
+                    else{
+                        $("#displayArea").val($("#displayArea").val() + value) 
+                    }
+                })
+
+                $("#equate").click(function(){
+                    var equation = $("#displayArea").val() 
+                    for(var i = 0; i < equation.length; i++){
+                        var ch = equation.charAt(i)
+                        var result = (eval(equation))
+                        $("#displayArea").val(result) 
+                    }
+                })
+
+                $("#clear").click(function(){
+                    $("#displayArea").val(null) 
+                })
+
+                $("#delete").click(function(){
+                    var value = $("#displayArea").val() 
+
+                    if (value.length == 1){
+                        $("#displayArea").val(null) 
+                    }
+                    else{
+                        var newValue = value.slice(0, value.length - 1)
+                        $("#displayArea").val(newValue)
+                    }
+                })
+
+                $("#negate").click(function(){
+                    var value = $("#displayArea").val() 
+                    if (value[0] == '-'){
+                        var newValue = value.slice(1, value.length)
+                        $("#displayArea").val(newValue)
+                    }
+                    else if(value[0] == '+'){
+                        for(let i = 0; i < value.length; i++){
+                            var newValue = value.slice(1, value.length)
+                            $("#displayArea").val("-" + newValue)
+                        }
+                    }
+                    else{
+                        for(let i = 0; i < value.length; i++){
+                            $("#displayArea").val("-" + value)
+                        }
+                    }
+                })
+
+            })
+
+        </script>
+    </head>
+
+    <body>
+        <div id="calculator">
+            <form>
+                <div>
+                    <input type="text" id="displayArea">
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td><input type="button" id="negate" value="+/-" onclick=""></td>
+                            <td><input type="button" id="clear" value="AC"></td>
+                            <td><input type="button" id="delete" value="DEL"></td>
+                            <td><input type="button" class="display" value="+"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="display" value="7"></td>
+                            <td><input type="button" class="display" value="8"></td>
+                            <td><input type="button" class="display" value="9"></td>
+                            <td><input type="button" class="display" value="/"></td>
+                        </tr>
+                        <tr> 
+                            <td><input type="button" class="display" value="4"></td>
+                            <td><input type="button" class="display" value="5"></td>
+                            <td><input type="button" class="display" value="6"></td>
+                            <td><input type="button" class="display" value="*"></td>
+                        </tr>
+                        <tr> 
+                            <td><input type="button" class="display" value="1"></td>
+                            <td><input type="button" class="display" value="2"></td>
+                            <td><input type="button" class="display" value="3"></td>
+                            <td><input type="button" class="display" value="-"></td>
+                                
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="display" value="0"></td>
+                            <td><input type="button" class="display" value="."></td>
+                            <td colspan="2"><input type="button" id="equate" value="="></td>
+                                
+                        </tr>
+                <div>
+                </table>
+                </div>
+            </form>
+    </body>
+</html>
